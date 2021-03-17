@@ -6,7 +6,7 @@ Hacer retiros
 Consultas de saldo
 */
 #include<stdio.h>
-#define MAX 5
+#define MAX 2
 
 typedef struct cuenta
 {
@@ -23,19 +23,19 @@ void registrarClientes();
 int consultarSaldo();
 void hacerDeposito();
 void hacerRetiro();
-int obtenerID();
+int obtenerPos(int id);
 
 int main(){
 
     int op;
     do{
-    printf("BIENVENIDO AL CAJERO UNPA \n");
+    printf("\n BIENVENIDO AL CAJERO UNPA \n");
     printf("Selecciona alguna opción:\n");
     printf("1. Registrar clientes \n");
     printf("2. Consultar saldo \n");
     printf("3. Hacer un deposito \n");
     printf("4. Hacer un retiro \n");
-    printf("5. Salir");
+    printf("5. Salir \n");
     scanf("%d",&op);
     // Hacer el llamado a una función
     switch (op)
@@ -48,10 +48,10 @@ int main(){
         break;
     
     case 3:
-
+        hacerDeposito();
         break;
     case 4:
-
+        hacerRetiro();
         break;
     
     default:
@@ -107,6 +107,50 @@ int consultarSaldo(){
     }
     
 return saldo;
+}
+
+void hacerDeposito(){
+    int id,dinero,pos;
+    printf("HACIENDO DEPOSITO A TU CUENTA \n");
+    printf("Introduce tu ID: \n");
+    scanf("%d",&id);
+    printf("Cantidad a depositar: \n");
+    scanf("%d",&dinero);
+    pos=obtenerPos(id);
+    // actualizando el saldo de un cliente
+    clientes[pos].saldo = clientes[pos].saldo+dinero;
+
+}
+
+int obtenerPos(int id){
+    int aux;
+    for (int  i = 0; i < MAX; i++)
+    {
+        if (clientes[i].id_cliente==id)
+        {
+            aux = i;
+        }
+        
+    }
+    
+    return aux;
+
+}
+
+void hacerRetiro(){
+    int id,dinero,pos;
+    printf("HACIENDO RETIRO A TU CUENTA \n");
+    printf("Introduce tu ID: \n");
+    scanf("%d",&id);
+    printf("Cantidad a retirar: \n");
+    scanf("%d",&dinero);
+    pos=obtenerPos(id);
+    if (dinero <= clientes[pos].saldo)
+    {
+        clientes[pos].saldo = clientes[pos].saldo-dinero;
+    }
+    
+
 
 
 }
