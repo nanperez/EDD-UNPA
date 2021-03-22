@@ -6,6 +6,7 @@ Hacer retiros
 Consultas de saldo
 */
 #include<stdio.h>
+#include<string.h>
 #define MAX 2
 
 typedef struct cuenta
@@ -67,23 +68,20 @@ int main(){
 // Definir la función para registrar los clientes
 void registrarClientes(){
     printf("REGISTRANDO CLIENTES \n");
+    char pal[50];
     for (int i = 0; i < MAX; i++)
     {
-     printf("Nombre: ");  
-     scanf("%s",clientes[i].nombre); 
+        //while (getchar()!= '\n');  /* Vaciar el buffer de entrada desde teclado*/
+        printf("Nombre:"); 
+        fgets(clientes[i].nombre,sizeof(clientes[i].nombre), stdin);
+        
+        printf("Identificador Cliente:");
+        scanf("%d",&clientes[i].id_cliente);
+
+        printf("Saldo:");
+        scanf("%d",&clientes[i].saldo);
 
 
-     printf("Apellido Paterno:");
-     scanf("%s",clientes[i].ap);
-
-     printf("Apellido Materno:");
-     scanf("%s",clientes[i].am);
-
-     printf("Identificador Cliente:");
-     scanf("%d",&clientes[i].id_cliente);
-
-     printf("Saldo:");
-     scanf("%d",&clientes[i].saldo);
         
     }
     
@@ -100,6 +98,8 @@ int consultarSaldo(){
         aux = clientes[i].id_cliente;
         if (id==aux)
         {
+            printf("Cliente:");
+            puts(clientes[i].nombre);
           saldo = clientes[i].saldo;
         }
         

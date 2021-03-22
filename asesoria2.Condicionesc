@@ -1,0 +1,34 @@
+// ejercicio con arreglo
+
+#include<stdio.h>
+
+int main(){
+    int e=0; // variable que almacena un valor
+    int edades[10]; //arreglo que almacena más de un valor
+
+    // llenado del arreglo
+  for (int i = 0; i < 10; i++)
+  {
+      printf("Dame un valor: \n");
+      scanf("%d",&edades[i]);
+      
+  }
+    /// validad los mayores de edad
+  for (int i = 0; i < 10; i++)
+  {
+      if (edades[i]>=18)
+      {
+        e++;
+      }
+      
+  }
+  
+
+  printf("Los mayores de edad son: %d",e);
+
+
+  // Contar cuantos son mayores de edad
+
+  
+
+}

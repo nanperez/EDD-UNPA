@@ -9,6 +9,9 @@
 		}
 	],
 	"settings": {
-		"editor.fontSize": 20
+		"editor.fontSize": 20,
+		"files.associations": {
+			"stdio.h": "c"
+		}
 	}
 }
