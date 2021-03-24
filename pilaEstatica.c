@@ -16,7 +16,11 @@ void imprimir(Pila *p);
 
 int main(){
     // Declarando e inicializando una variable de tipo Pila
-    Pila pila1={1,{}}
+    Pila pila1={-1,{0}};
+    insertar(&pila1,10);
+    insertar(&pila1,52);
+    insertar(&pila1,10);
+    imprimir(&pila1);
 }
 
 void insertar(Pila *p, int valor){
@@ -28,7 +32,7 @@ void insertar(Pila *p, int valor){
 void imprimir(Pila *p){
     for (int i = p->tope; i >=0; i--)
     {
-        printf("%d",p->elementos[i]);
+        printf("|%d \n",p->elementos[i]);
         
     }
     
