@@ -16,9 +16,7 @@ void imprimir(Pila *p);
 
 int main(){
     // Declarando e inicializando una variable de tipo Pila
-    Pila pila1={-1,{0}};
-
-
+    Pila pila1={1,{}}
 }
 
 void insertar(Pila *p, int valor){
