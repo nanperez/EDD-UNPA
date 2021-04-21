@@ -9,8 +9,9 @@ typedef struct Nodo{
 
 Nodo *crearNodo();
 void insertar(Nodo **t, int valor);
-void eliminar();
+void eliminar(Nodo **t);
 void imprimir(Nodo *t);
+void movimiento(Nodo **origen, Nodo **destino, int disco);
 
 
 
@@ -26,18 +27,29 @@ int main(){
     // Paso de argumentos 
     // Paso por valor
     // Paso por referencia
-    insertar(&torre1,10);
-    insertar(&torre1,20);
-    insertar(&torre1,50);
+    insertar(&torre1,3);
+    insertar(&torre1,2);
+    insertar(&torre1,1);
+    imprimir(torre1);
 
     insertar(&torre2,150);
     insertar(&torre3,500);
-      printf("........TORRE 1.......");
+      printf("........TORRE 1....... \n");
     imprimir(torre1);
-    printf("........TORRE 2.......");
+    printf("........TORRE 2....... \n");
     imprimir(torre2);
-       printf("........TORRE 3.......");
+       printf("........TORRE 3....... \n");
     imprimir(torre3);
+     printf("........TORRE 1....... \n");
+    eliminar(&torre1);
+    imprimir(torre1);
+  
+ 
+
+   }
+
+
+    
 
 
 
@@ -77,6 +89,22 @@ void imprimir(Nodo *torre){
     {
        printf("%d \n",torre->dato);
        torre = torre->siguiente;
+    }
+    
+
+}
+
+void eliminar(Nodo **torre){
+    Nodo *aux = NULL;
+    aux = *torre;
+
+    if (*torre!=NULL)
+    {
+      *torre = aux->siguiente;
+      aux ->siguiente = NULL;
+      free(aux);
+    }else{
+      printf("No hay elementos en la torre \n");
     }
     
 
