@@ -20,29 +20,20 @@ void imprimir(Cola *c);
 int frente(Cola *pt);
 void eliminar(Cola *pt);
 
-int main()
-{
-    Cola *cola = nuevaCola(5);
+int main(){
+    Cola *cola = nuevaCola(4);
+    insertar(cola,50);
+    insertar(cola,80);
+    insertar(cola,3);
+    insertar(cola,70);
     printf("Longitud  = %d\n", longitud(cola));
-    printf("Estado de la cola: %s \n",isEmpty(cola));
-    insertar(cola,100);
-    insertar(cola,500);
-    insertar(cola,600);
-    printf("Longitud  = %d\n", longitud(cola));
-    printf("Estado de la cola: %s \n",isEmpty(cola));
-    imprimir(cola);
-    printf("-----------------------------------------");
     eliminar(cola);
+    eliminar(cola);
+    insertar(cola,111);
+    insertar(cola,1010);
+    insertar(cola,5555);
     imprimir(cola);
-    insertar(cola,300);
-    insertar(cola,600);
-    insertar(cola,800);
-    //insertar(cola,1000);
-    printf("-----------------------------------------\n");
-    printf("Longitud  = %d\n", longitud(cola));
-    imprimir(cola);
-   
-    //return 0;
+  
 }
  
 // Función que ayuda a crear una nueva estructura de cola
