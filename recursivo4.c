@@ -1,21 +1,44 @@
-// Imaginar que vivimos en el mundo sin iteraciones 
-// no existe el ciclo for y el ciclo while
-// vamos a utilizar funciones recursivas
-/*
-longitud, inicio y fin
-Vamos a trabajar con un arreglo
-*/
-
 #include<stdio.h>
-
-void llenadoArreglo(int arr[], int i, int fin);
+#include<stdlib.h>
+// prototipo de función
+void llenadoArreglo(int *arr, int inicio, int fin);
+int sumaArreglo(int *arr,int i, int fin, int suma);
 
 int main(){
     int longitud;
     printf("Longitud del arreglo: \n");
     scanf("%d",&longitud);
 
-    // declarado el arreglo estatico
+    //declarado el arreglo estatico
     int arreglo[longitud];
-    //llenamos un arreglo
+    // llamando a función para llenar el arreglo
+    llenadoArreglo(arreglo,0,longitud);
+    // suma de todos los elementos del arreglo
+  
 }
+
+// función recursiva
+void llenadoArreglo(int *arr, int inicio, int fin){
+   if (inicio<fin)
+   {
+       printf("Dame un valor: ");
+       scanf("%d",&arr[inicio]); 
+       inicio++;
+        // paso recursivo 
+        llenadoArreglo(arr,inicio,fin);
+
+   }
+}
+
+int sumaArreglo(int *arr,int i, int fin, int suma){
+        if (i<fin)
+        {
+            suma = suma+arr[i];
+            i = i+1;
+            // paso recursivo
+            return sumaArreglo(arr,i,fin,suma);
+        }
+     return suma;  
+}
+
+
