@@ -28,7 +28,6 @@ int contarVocales(char *cadena, int longitud, int i, int cont){
         
         if ((cadena[i]=='a') || (cadena[i]=='e') || (cadena[i]=='i') || (cadena[i]=='o') || (cadena[i]=='u'))
         {
-            printf("ebtro");
             cont++;
             i++;
             return contarVocales(cadena,longitud,i,cont);

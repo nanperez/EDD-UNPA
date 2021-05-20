@@ -11,7 +11,8 @@
 	"settings": {
 		"editor.fontSize": 20,
 		"files.associations": {
-			"stdio.h": "c"
+			"stdio.h": "c",
+			"stdlib.h": "c"
 		}
 	}
 }
